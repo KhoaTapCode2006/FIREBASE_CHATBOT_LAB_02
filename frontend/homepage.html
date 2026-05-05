@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-lowest": "#060e20",
+                    "secondary-fixed": "#f0dbff",
+                    "surface-dim": "#0b1326",
+                    "surface-bright": "#31394d",
+                    "on-tertiary-container": "#452000",
+                    "surface": "#0b1326",
+                    "surface-container": "#171f33",
+                    "background": "#0b1326",
+                    "surface-container-highest": "#2d3449",
+                    "on-secondary": "#490080",
+                    "on-secondary-fixed": "#2c0051",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#c7c4d7",
+                    "outline-variant": "#464554",
+                    "error-container": "#93000a",
+                    "on-surface": "#dae2fd",
+                    "secondary": "#ddb7ff",
+                    "primary-container": "#8083ff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "inverse-primary": "#494bd6",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "primary": "#c0c1ff",
+                    "on-primary-container": "#0d0096",
+                    "inverse-on-surface": "#283044",
+                    "surface-tint": "#c0c1ff",
+                    "tertiary": "#ffb783",
+                    "on-tertiary": "#4f2500",
+                    "secondary-container": "#6f00be",
+                    "on-primary": "#1000a9",
+                    "inverse-surface": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "surface-container-high": "#222a3d",
+                    "surface-variant": "#2d3449",
+                    "surface-container-low": "#131b2e",
+                    "secondary-fixed-dim": "#ddb7ff",
+                    "on-secondary-container": "#d6a9ff",
+                    "primary-fixed": "#e1e0ff",
+                    "tertiary-container": "#d97721",
+                    "outline": "#908fa0",
+                    "on-secondary-fixed-variant": "#6900b3",
+                    "on-background": "#dae2fd",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "on-primary-fixed": "#07006c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sidebar-width": "280px",
+                    "gutter": "24px",
+                    "max-content-width": "800px",
+                    "container-padding": "32px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "h2": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-sm": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "code": ["Space Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "code": ["14px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0b1326; }
+        .glass-panel {
+            background: rgba(23, 31, 51, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .message-gradient {
+            background: linear-gradient(135deg, rgba(128, 131, 255, 0.05) 0%, rgba(128, 131, 255, 0) 100%);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #2d3449; border-radius: 10px; }
+    </style>
+</head>
+<body data-page="homepage" class="font-body-md text-on-surface selection:bg-primary/30">
+<!-- Top Navigation Anchor -->
+<header class="bg-slate-950/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-slate-800/50 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="text-xl font-bold text-slate-50 dark:text-white tracking-tighter">🎋 BamBooChatBot</span>
+</div>
+<div class="flex gap-4 items-center relative">
+        <button id="settingsButton" class="p-2 rounded-full hover:bg-slate-900/30 transition-colors">
+                <span class="material-symbols-outlined">account_circle</span>
+        </button>
+        <div id="settingsMenu" class="absolute right-0 mt-12 w-48 bg-slate-950 border border-slate-800/60 rounded-lg shadow-xl hidden">
+                <div class="p-3 border-b border-slate-800/40">
+                        <div id="authStatus" class="text-sm text-slate-200">Not signed in</div>
+                        <div class="text-xs text-slate-400 mt-1">Account</div>
+                </div>
+                <div class="p-2">
+                        <button id="settingsLogout" class="w-full text-left px-3 py-2 rounded hover:bg-slate-900/40">Log out</button>
+                </div>
+        </div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-slate-950 border-r border-slate-800/60 flex flex-col h-full py-4 gap-2 pt-20 hidden md:flex">
+<div class="px-4 mb-6">
+<button id="newChatButton" class="w-full flex items-center justify-center gap-2 bg-slate-900 text-slate-50 border border-slate-800 py-3 rounded-xl font-semibold text-sm hover:bg-slate-800 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+        New Chat
+      </button>
+</div>
+<nav class="flex-1 overflow-y-auto px-2 space-y-1">
+<div class="px-4 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Cuộc trò chuyện</div>
+<div id="sessionsList" class="px-2 py-2 text-sm text-slate-300">
+  <div class="px-4 py-3 text-xs text-slate-500">Không có cuộc trò chuyện nào. Bắt đầu bằng cách nhấn "New Chat".</div>
+</div>
+</nav>
+<div class="px-4 pt-4 border-t border-slate-800/60 space-y-1">
+        <div class="p-4 bg-cyan-500/10 rounded-xl border border-cyan-500/20 mt-4">
+                <p class="text-xs font-bold text-cyan-300 mb-2">BamBooChatBot v1.0</p>
+                <p class="text-[11px] text-slate-400 mb-2">✅ Viết code đơn giản</p>
+                <p class="text-[11px] text-slate-400 mb-2">✅ Sinh văn bản tự do</p>
+                <p class="text-[11px] text-slate-400">✅ Tính toán cơ bản</p>
+        </div>
+</div>
+</aside>
+<!-- Main Chat Canvas -->
+<main class="md:pl-64 pt-16 h-screen flex flex-col">
+<div class="flex-1 overflow-y-auto pb-40">
+<div class="max-w-[800px] mx-auto px-6 py-10 space-y-10">
+<!-- Welcome/Empty State -->
+<div class="text-center py-12">
+<h1 class="font-h1 text-h1 text-on-surface mb-4">Chào mừng bạn đến với BamBooChatBot</h1>
+<p class="text-slate-400 font-body-md max-w-md mx-auto">Hỏi tôi những gì bạn cần: viết code, tạo văn bản, hoặc tính toán. Bắt đầu cuộc trò chuyện mới dưới đây!</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<button class="glass-panel p-4 rounded-2xl text-left hover:bg-slate-800/50 transition-all border border-slate-800/50 group">
+<span class="material-symbols-outlined text-indigo-400 mb-2 group-hover:scale-110 transition-transform">terminal</span>
+<h3 class="font-bold text-sm text-slate-200">Debug Code</h3>
+<p class="text-xs text-slate-500 mt-1">Paste your snippet and find logic errors instantly.</p>
+</button>
+<button class="glass-panel p-4 rounded-2xl text-left hover:bg-slate-800/50 transition-all border border-slate-800/50 group">
+<span class="material-symbols-outlined text-indigo-400 mb-2 group-hover:scale-110 transition-transform">edit_square</span>
+<h3 class="font-bold text-sm text-slate-200">Creative Writing</h3>
+<p class="text-xs text-slate-500 mt-1">Generate outlines or drafts for your next project.</p>
+</button>
+</div>
+
+</div>
+<!-- Chat messages -->
+<div id="chatMessages" class="max-w-[800px] mx-auto flex flex-col gap-4 px-6 pb-4 md:ml-20"></div>
+</div>
+<div class="bg-transparent p-6 border-t border-slate-800/20">
+        <div class="max-w-[800px] mx-auto">
+                <form id="chatForm" class="glass-panel rounded-2xl p-2 shadow-2xl relative">
+                        <div class="absolute -top-10 left-0 flex gap-2 overflow-x-auto pb-2 scrollbar-hide max-w-full">
+                                <span class="bg-slate-900/80 backdrop-blur-sm border border-slate-800 text-slate-400 text-[10px] px-3 py-1.5 rounded-full whitespace-nowrap">🎋 BamBooChatBot v1.0</span>
+                                <span class="bg-slate-900/80 backdrop-blur-sm border border-slate-800 text-slate-400 text-[10px] px-3 py-1.5 rounded-full whitespace-nowrap">Powered by DeepSeek-R1</span>
+                        </div>
+                        <div class="flex items-end gap-2">
+                                <button type="button" class="p-3 text-slate-500 hover:text-slate-300 transition-colors">
+                                        <span class="material-symbols-outlined">attach_file</span>
+                                </button>
+                                <textarea id="chatPrompt" class="w-full bg-transparent border-none focus:ring-0 text-on-surface py-3 px-2 resize-none max-h-48 text-body-md placeholder-slate-600" placeholder="Nhập câu hỏi hoặc yêu cầu của bạn..." rows="1"></textarea>
+                                <button id="chatSendButton" type="button" class="bg-indigo-500 text-white p-3 rounded-xl hover:bg-indigo-600 transition-all active:scale-95 flex items-center justify-center">
+                                        <span class="material-symbols-outlined" data-weight="fill">send</span>
+                                </button>
+                        </div>
+                        <div class="flex justify-between items-center px-4 py-2 mt-1 border-t border-slate-800/30">
+                                <div class="flex gap-4">
+                                        <button type="button" class="flex items-center gap-1 text-[11px] font-bold text-slate-500 hover:text-slate-300 transition-colors">
+                                                <span class="material-symbols-outlined text-[14px]">language</span>
+                                                WEB SEARCH
+                                        </button>
+                                        <button type="button" class="flex items-center gap-1 text-[11px] font-bold text-slate-500 hover:text-slate-300 transition-colors">
+                                                <span class="material-symbols-outlined text-[14px]">image</span>
+                                                GENERATE IMAGE
+                                        </button>
+                                </div>
+                                <div class="text-[10px] text-slate-600 font-medium">BamBooChatBot có thể không hoàn hảo. Kiểm tra lại các thông tin quan trọng.</div>
+                        </div>
+                </form>
+        </div>
+</div>
+</main>
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-slate-950 border-t border-slate-800 px-6 py-4 flex justify-around items-center z-50">
+<button class="text-indigo-400 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined" data-weight="fill">chat_bubble</span>
+<span class="text-[10px] font-bold">CHAT</span>
+</button>
+<button class="text-slate-500 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-bold">HISTORY</span>
+</button>
+<button class="bg-indigo-500 -mt-12 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg border-4 border-slate-950">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="text-slate-500 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold">EXPLORE</span>
+</button>
+<button class="text-slate-500 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">PROFILE</span>
+</button>
+</div>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="app.js"></script>
+</body></html>

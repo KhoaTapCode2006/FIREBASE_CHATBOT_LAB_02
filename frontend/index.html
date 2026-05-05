@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BamBooChatBot — Redirect</title>
+</head>
+<body>
+  <p>Redirecting...</p>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="app.js"></script>
+  <script>
+
+    const decide = async () => {
+      try {
+        const user = firebase.auth().currentUser;
+
+        const localFlag = localStorage.getItem('isLoggedIn');
+        if (localFlag === '1' && user) {
+          window.location.href = 'homepage.html';
+          return;
+        }
+
+        if (user) {
+          window.location.href = 'homepage.html';
+          return;
+        }
+
+        window.location.href = 'login.html';
+      } catch (e) {
+        console.warn('Redirect decision error', e);
+        window.location.href = 'login.html';
+      }
+    };
+
+
+    firebase.auth().onAuthStateChanged((user) => {
+      const localFlag = localStorage.getItem('isLoggedIn');
+      if (localFlag === '1' && user) {
+        window.location.href = 'homepage.html';
+      } else if (user) {
+        window.location.href = 'homepage.html';
+      } else {
+        window.location.href = 'login.html';
+      }
+    });
+
+
+    setTimeout(decide, 1500);
+  </script>
+</body>
+</html>

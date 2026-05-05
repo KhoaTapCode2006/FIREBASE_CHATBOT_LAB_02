@@ -85,8 +85,14 @@ uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
 - Sau khi đăng nhập/đăng ký thì có thể sử dụng chatbot bình thường
 - Có thể logout ra bất cứ khi nào
 ___
+## Video Demo
+[![VIDEO DEMO](https://img.youtube.com/vi/NLHeQ_oTm1g/maxresdefault.jpg)](https://www.youtube.com/watch?v=NLHeQ_oTm1g)
+___
 ## Sửa lỗi nếu có vấn đề
 - Lỗi Firebase: kiểm tra `FIREBASE_CREDENTIALS_PATH` và quyền Firestore.
 - Lỗi khi tải model: kiểm tra kết nối mạng 
 - OOM / thiếu RAM: giảm `max_length`, hoặc dùng model nhỏ hơn.
 - CORS: đảm bảo `frontend` gọi đúng `BACKEND_URL` (mặc định http://127.0.0.1:8000) và backend đã bật CORS.
+___
+
+
